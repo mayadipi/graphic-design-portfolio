@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maya Di Pietro — Graphiste</title>
+  <meta name="description" content="Portfolio de Maya Di Pietro, graphiste. Identités visuelles, édition, affiches et pictogrammes.">
+
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/img/stickers/picto-01.png">
+</head>
+<body>
+
+<a class="skip" href="#work" data-i18n="nav.skip">Aller aux projets</a>
+
+<!-- ============ EN-TÊTE FIXE ============ -->
+<header class="topbar">
+  <div class="topbar__id">
+    <!-- mène à la présentation en bas de page -->
+    <a class="topbar__name" href="#about"><span data-i18n="top.name">Graphisme</span> / <span data-i18n="top.student">3e année, étudiante à l'</span></a><a class="topbar__eracom" href="https://www.eracom.ch" target="_blank" rel="noopener" title="eracom.ch — École Romande d'Arts et Communication">ERACOM<span class="topbar__arrow" aria-hidden="true">↗</span></a>
+  </div>
+  <nav class="topbar__nav" aria-label="Navigation">
+    <a href="#work" data-i18n="nav.work">Projets</a>
+    <a href="#about" data-i18n="nav.about">À propos</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" lang="en">EN</button>
+    <button type="button" data-lang="fr" lang="fr">FR</button>
+    <button type="button" data-lang="it" lang="it">IT</button>
+  </div>
+</header>
+
+<!-- Indicateur du projet en cours (bas de page) -->
+<div class="now" aria-hidden="true">
+  <span class="now__bar"><span class="now__fill"></span></span>
+  <span class="now__label"></span>
+</div>
+
+<!-- Navigation entre projets (apparaît pendant les projets) -->
+<nav class="pnav" aria-label="Projets">
+  <a href="#charmettes"><span class="pnav__label">Home des Charmettes</span><span class="pnav__dot"></span></a>
+  <a href="#everio"><span class="pnav__label">Everio HD</span><span class="pnav__dot"></span></a>
+  <a href="#nifff"><span class="pnav__label">NIFFF</span><span class="pnav__dot"></span></a>
+  <a href="#pierre-noir"><span class="pnav__label">Pierre Noir</span><span class="pnav__dot"></span></a>
+  <a href="#posters"><span class="pnav__label" data-i18n="posters.title">Affiches</span><span class="pnav__dot"></span></a>
+</nav>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" data-bg="#ffffff" data-fg="#000000" data-name="Maya Di Pietro">
+    <!-- Bloc nom + infos. La taille est calculée dans js/main.js (fitName).
+         Les "ı" de Di Pietro ont leur point dessous (classe i-low). -->
+    <div class="hero__lockup">
+      <h1 class="hero__name" aria-label="Portfolio — Maya Di Pietro">
+        <span class="hero__line hero__pf">Por<span class="hero__tf">t</span>fol<span class="i-low">ı</span>o</span>
+        <span class="hero__line hero__maya">Maya</span>
+        <span class="hero__line hero__dp">D<span class="i-low">ı</span>&nbsp;P<span class="i-low">ı</span>e<span class="hero__t">t</span>ro</span>
+      </h1>
+
+
+      <span class="hero__tag drag" style="--tag:#3dff8a;--r:-9deg;left:3.55em;top:.06em">STICK IT ALL</span>
+      <img class="sticker drag hero__moi" src="assets/img/stickers/sticker-moi.png" alt="" data-i18n-alt="alt.moi" width="626" height="900" style="--r:9deg">
+    </div>
+  </section>
+
+  <!-- ============ INDEX ============ -->
+  <section class="index" id="work" data-bg="#ffffff" data-fg="#000000" data-name="Index">
+    <h2 class="index__title" data-i18n="index.title">Travaux 2023-26</h2>
+    <ol class="index__list">
+      <li><a href="#charmettes" data-thumb="assets/img/charmettes/charmettes-03.jpg">
+        <span class="index__name">Home des Charmettes</span>
+        <span class="index__cat" data-i18n="charmettes.cat">Identité visuelle</span>
+      </a></li>
+      <li><a href="#everio" data-thumb="assets/img/everio/everio-01.jpg">
+        <span class="index__name">Everio HD</span>
+        <span class="index__cat" data-i18n="everio.cat">Édition &amp; publicité</span>
+      </a></li>
+      <li><a href="#nifff" data-thumb="assets/img/nifff/nifff-poster.jpg">
+        <span class="index__name">NIFFF</span>
+        <span class="index__cat" data-i18n="nifff.cat">Affiche &amp; programme</span>
+      </a></li>
+      <li><a href="#pierre-noir" data-thumb="assets/img/pierre-noir/pierre-noir-02.jpg">
+        <span class="index__name">Pierre Noir</span>
+        <span class="index__cat" data-i18n="pierre.cat">Jeu de cartes</span>
+      </a></li>
+      <li><a href="#posters" data-thumb="assets/img/posters/poster-02.jpg">
+        <span class="index__name" data-i18n="posters.title">Affiches</span>
+        <span class="index__cat" data-i18n="posters.cat">Sérigraphie, typographie, illustration</span>
+      </a></li>
+    </ol>
+    <img class="index__thumb" src="" alt="" aria-hidden="true">
+  </section>
+
+  <!-- ============ 1. HOME DES CHARMETTES ============ -->
+  <section class="project project--charmettes" id="charmettes" data-bg="#f3d23a" data-fg="#0c4a22" data-name="Home des Charmettes">
+    <!-- infos du projet : restent visibles pendant le titre et les premières images -->
+    <div class="project__info"><div class="project__info-inner grid">
+        <div class="project__meta">
+          <p class="project__cat" data-i18n="charmettes.cat">Identité visuelle</p>
+          <p class="project__desc" data-i18n="charmettes.desc"></p>
+          <p class="project__year">2026</p>
+        </div>
+    </div></div>
+    <div class="project__stage"><h2 class="project__title">Home des<br>Charmettes</h2></div>
+
+    <div class="project__body grid">
+
+      <figure class="g g--c1"><img src="assets/img/charmettes/charmettes-01.jpg" alt="" data-i18n-alt="alt.charmettes1" width="960" height="640" loading="lazy"></figure>
+      <figure class="g g--c2"><img src="assets/img/charmettes/charmettes-02.jpg" alt="" data-i18n-alt="alt.charmettes2" width="2000" height="1334" loading="lazy"></figure>
+      <!-- Construction du logo : 3 étapes, formes déplaçables (js/main.js → BUILD) -->
+      <div class="build g--build">
+        <div class="build__steps">
+        <figure class="build__step build__step--1">
+          <svg class="build__svg" viewBox="108 322 214 192" aria-hidden="true"><defs><filter id="b-sticker" x="-20%" y="-20%" width="140%" height="140%">
+              <feMorphology in="SourceAlpha" operator="dilate" radius="2.6" result="grow"/>
+              <feFlood flood-color="#ffffff"/>
+              <feComposite in2="grow" operator="in" result="outline"/>
+              <feGaussianBlur in="grow" stdDeviation="2.2" result="blur"/>
+              <feOffset in="blur" dx="0" dy="2.2" result="off"/>
+              <feComponentTransfer in="off" result="shadow"><feFuncA type="linear" slope=".35"/></feComponentTransfer>
+              <feMerge><feMergeNode in="shadow"/><feMergeNode in="outline"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter></defs><g class="b-grid"><line x1="104" x2="326" y1="348.6" y2="348.6"/><line x1="104" x2="326" y1="384.6" y2="384.6"/><line x1="104" x2="326" y1="420" y2="420"/><line x1="104" x2="326" y1="456.7" y2="456.7"/><line x1="104" x2="326" y1="492.5" y2="492.5"/><line y1="318" y2="518" x1="132.2" x2="132.2"/><line y1="318" y2="518" x1="168.4" x2="168.4"/><line y1="318" y2="518" x1="240.5" x2="240.5"/><line y1="318" y2="518" x1="285.5" x2="285.5"/></g><g class="b-guide"><path class="b-line" d="M -0.00133976 -0.00156334 C -0.47066 0.0179917 -0.943891 0.0375467 -1.417122 0.0375467 C -21.300651 0.0375467 -37.417886 -16.083599 -37.417886 -35.963217 C -37.417886 -55.846746 -21.300651 -71.963981 -1.417122 -71.963981 L -1.417122 -71.99918 L 70.580494 -71.99918 L 70.580494 -0.00156334 Z M -0.00133976 -0.00156334" transform="matrix(0.998785, 0, 0, -0.998785, 170.036494, 348.631251)"/></g><g class="b-pieces">
+          <g class="b-piece" data-piece="trunk" style="--c2:#ecf052;--c3:#95d896;--ex:-10px;--ey:6px"><path class="b-fill" d="M 168.375 420.054688 C 168.292969 420.054688 168.214844 420.0625 168.132812 420.0625 L 168.132812 384.832031 L 132.175781 384.832031 L 132.175781 456.746094 L 132.1875 456.746094 C 132.449219 476.511719 148.546875 492.457031 168.375 492.457031 Z M 168.375 420.054688"/><path class="b-line" d="M -0.000915161 -0.000104664 C -0.0830462 -0.000104664 -0.161266 -0.00792667 -0.243397 -0.00792667 L -0.243397 35.265391 L -36.244161 35.265391 L -36.244161 -36.736137 L -36.232428 -36.736137 C -35.970391 -56.525801 -19.853156 -72.490507 -0.000915161 -72.490507 L -0.000915161 -0.000104664" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 420.054583)"/></g>
+            <g class="b-piece" data-piece="head" style="--c2:#b4dc24;--c3:#3c7d47;--ex:-4px;--ey:-12px"><path class="b-fill" d="M -0.0000858224 0.000882947 C -0.0000858224 0.000882947 -0.512427 33.86624 36.000678 36.001647 L 100.379664 35.868673 C 100.379664 35.868673 70.820319 31.785588 62.755835 -0.0343161 Z M -0.0000858224 0.000882947" transform="matrix(0.998785, 0, 0, -0.998785, 132.664148, 384.551663)"/><path class="b-line" d="M -0.0000858224 0.000882947 C -0.0000858224 0.000882947 -0.512427 33.86624 36.000678 36.001647 L 100.379664 35.868673 C 100.379664 35.868673 70.820319 31.785588 62.755835 -0.0343161 Z M -0.0000858224 0.000882947" transform="matrix(0.998785, 0, 0, -0.998785, 132.664148, 384.551663)"/></g>
+            <g class="b-piece" data-piece="ear" style="--c2:#4aa9e3;--c3:#4ebe44;--ex:14px;--ey:-6px"><path class="b-fill" d="M 285.476562 393.578125 C 285.476562 418.398438 265.355469 438.523438 240.53125 438.523438 C 215.710938 438.523438 195.585938 418.398438 195.585938 393.578125 C 195.585938 368.753906 215.710938 348.632812 240.53125 348.632812 C 265.355469 348.632812 285.476562 368.753906 285.476562 393.578125"/><path class="b-line" d="M -0.00172876 -0.00154024 C -0.00172876 -24.85204 -20.147295 -45.001517 -45.001706 -45.001517 C -69.852206 -45.001517 -90.001683 -24.85204 -90.001683 -0.00154024 C -90.001683 24.852871 -69.852206 44.998437 -45.001706 44.998437 C -20.147295 44.998437 -0.00172876 24.852871 -0.00172876 -0.00154024 Z M -0.00172876 -0.00154024" transform="matrix(0.998785, 0, 0, -0.998785, 285.478289, 393.576587)"/></g>
+            <g class="b-piece" data-piece="eye" style="--c2:#c53d4c;--c3:#13241b;--ex:0px;--ey:0px"><path class="b-fill" d="M 204.578125 402.566406 C 204.578125 412.496094 196.527344 420.542969 186.597656 420.542969 C 176.667969 420.542969 168.621094 412.496094 168.621094 402.566406 C 168.621094 392.636719 176.667969 384.585938 186.597656 384.585938 C 196.527344 384.585938 204.578125 392.636719 204.578125 402.566406"/><path class="b-line" d="M 0.00144162 -0.000753422 C 0.00144162 -9.942518 -8.059131 -17.99918 -18.000896 -17.99918 C -27.94266 -17.99918 -35.999322 -9.942518 -35.999322 -0.000753422 C -35.999322 9.941011 -27.94266 18.001584 -18.000896 18.001584 C -8.059131 18.001584 0.00144162 9.941011 0.00144162 -0.000753422 Z M 0.00144162 -0.000753422" transform="matrix(0.998785, 0, 0, -0.998785, 204.576685, 402.565654)"/></g>
+            <g class="b-piece" data-piece="tusk1" style="--c2:#6a2290;--c3:#ccebd0;--ex:8px;--ey:4px"><path class="b-fill" d="M 168.375 446.792969 L 168.375 420.542969 L 194.117188 420.542969 C 194.117188 420.542969 173.675781 426.871094 168.375 446.792969"/><path class="b-line" d="M -0.000915161 -0.00150615 L -0.000915161 26.28042 L 25.772581 26.28042 C 25.772581 26.28042 5.306313 19.944599 -0.000915161 -0.00150615 Z M -0.000915161 -0.00150615" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 446.791464)"/></g>
+            <g class="b-piece" data-piece="tusk2" style="--c2:#6a2290;--c3:#5bb563;--ex:8px;--ey:12px"><path class="b-fill" d="M 168.375 466.207031 L 168.375 492.457031 L 194.117188 492.457031 C 194.117188 492.457031 173.675781 486.128906 168.375 466.207031"/><path class="b-line" d="M -0.000915161 0.00151914 L -0.000915161 -26.280407 L 25.772581 -26.280407 C 25.772581 -26.280407 5.306313 -19.944586 -0.000915161 0.00151914 Z M -0.000915161 0.00151914" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 466.208549)"/></g>
+          </g><g class="b-mark"><circle cx="240.5" cy="393.6" r="1.6"/><circle cx="186.6" cy="402.6" r="1.6"/></g></svg>
+        </figure>
+        <figure class="build__step build__step--2">
+          <svg class="build__svg" viewBox="108 322 214 192" aria-hidden="true"><g class="b-pieces">
+          <g class="b-piece" data-piece="trunk" style="--c2:#ecf052;--c3:#95d896;--ex:-10px;--ey:6px"><path class="b-fill" d="M 168.375 420.054688 C 168.292969 420.054688 168.214844 420.0625 168.132812 420.0625 L 168.132812 384.832031 L 132.175781 384.832031 L 132.175781 456.746094 L 132.1875 456.746094 C 132.449219 476.511719 148.546875 492.457031 168.375 492.457031 Z M 168.375 420.054688"/><path class="b-line" d="M -0.000915161 -0.000104664 C -0.0830462 -0.000104664 -0.161266 -0.00792667 -0.243397 -0.00792667 L -0.243397 35.265391 L -36.244161 35.265391 L -36.244161 -36.736137 L -36.232428 -36.736137 C -35.970391 -56.525801 -19.853156 -72.490507 -0.000915161 -72.490507 L -0.000915161 -0.000104664" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 420.054583)"/></g>
+            <g class="b-piece" data-piece="head" style="--c2:#b4dc24;--c3:#3c7d47;--ex:-4px;--ey:-12px"><path class="b-fill" d="M -0.0000858224 0.000882947 C -0.0000858224 0.000882947 -0.512427 33.86624 36.000678 36.001647 L 100.379664 35.868673 C 100.379664 35.868673 70.820319 31.785588 62.755835 -0.0343161 Z M -0.0000858224 0.000882947" transform="matrix(0.998785, 0, 0, -0.998785, 132.664148, 384.551663)"/><path class="b-line" d="M -0.0000858224 0.000882947 C -0.0000858224 0.000882947 -0.512427 33.86624 36.000678 36.001647 L 100.379664 35.868673 C 100.379664 35.868673 70.820319 31.785588 62.755835 -0.0343161 Z M -0.0000858224 0.000882947" transform="matrix(0.998785, 0, 0, -0.998785, 132.664148, 384.551663)"/></g>
+            <g class="b-piece" data-piece="ear" style="--c2:#4aa9e3;--c3:#4ebe44;--ex:14px;--ey:-6px"><path class="b-fill" d="M 285.476562 393.578125 C 285.476562 418.398438 265.355469 438.523438 240.53125 438.523438 C 215.710938 438.523438 195.585938 418.398438 195.585938 393.578125 C 195.585938 368.753906 215.710938 348.632812 240.53125 348.632812 C 265.355469 348.632812 285.476562 368.753906 285.476562 393.578125"/><path class="b-line" d="M -0.00172876 -0.00154024 C -0.00172876 -24.85204 -20.147295 -45.001517 -45.001706 -45.001517 C -69.852206 -45.001517 -90.001683 -24.85204 -90.001683 -0.00154024 C -90.001683 24.852871 -69.852206 44.998437 -45.001706 44.998437 C -20.147295 44.998437 -0.00172876 24.852871 -0.00172876 -0.00154024 Z M -0.00172876 -0.00154024" transform="matrix(0.998785, 0, 0, -0.998785, 285.478289, 393.576587)"/></g>
+            <g class="b-piece" data-piece="eye" style="--c2:#c53d4c;--c3:#13241b;--ex:0px;--ey:0px"><path class="b-fill" d="M 204.578125 402.566406 C 204.578125 412.496094 196.527344 420.542969 186.597656 420.542969 C 176.667969 420.542969 168.621094 412.496094 168.621094 402.566406 C 168.621094 392.636719 176.667969 384.585938 186.597656 384.585938 C 196.527344 384.585938 204.578125 392.636719 204.578125 402.566406"/><path class="b-line" d="M 0.00144162 -0.000753422 C 0.00144162 -9.942518 -8.059131 -17.99918 -18.000896 -17.99918 C -27.94266 -17.99918 -35.999322 -9.942518 -35.999322 -0.000753422 C -35.999322 9.941011 -27.94266 18.001584 -18.000896 18.001584 C -8.059131 18.001584 0.00144162 9.941011 0.00144162 -0.000753422 Z M 0.00144162 -0.000753422" transform="matrix(0.998785, 0, 0, -0.998785, 204.576685, 402.565654)"/></g>
+            <g class="b-piece" data-piece="tusk1" style="--c2:#6a2290;--c3:#ccebd0;--ex:8px;--ey:4px"><path class="b-fill" d="M 168.375 446.792969 L 168.375 420.542969 L 194.117188 420.542969 C 194.117188 420.542969 173.675781 426.871094 168.375 446.792969"/><path class="b-line" d="M -0.000915161 -0.00150615 L -0.000915161 26.28042 L 25.772581 26.28042 C 25.772581 26.28042 5.306313 19.944599 -0.000915161 -0.00150615 Z M -0.000915161 -0.00150615" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 446.791464)"/></g>
+            <g class="b-piece" data-piece="tusk2" style="--c2:#6a2290;--c3:#5bb563;--ex:8px;--ey:12px"><path class="b-fill" d="M 168.375 466.207031 L 168.375 492.457031 L 194.117188 492.457031 C 194.117188 492.457031 173.675781 486.128906 168.375 466.207031"/><path class="b-line" d="M -0.000915161 0.00151914 L -0.000915161 -26.280407 L 25.772581 -26.280407 C 25.772581 -26.280407 5.306313 -19.944586 -0.000915161 0.00151914 Z M -0.000915161 0.00151914" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 466.208549)"/></g>
+          </g></svg>
+        </figure>
+        <figure class="build__step build__step--3">
+          <svg class="build__svg" viewBox="108 322 214 192" aria-hidden="true"><g class="b-pieces">
+          <g class="b-piece" data-piece="trunk" style="--c2:#ecf052;--c3:#95d896;--ex:-10px;--ey:6px"><path class="b-fill" d="M 168.375 420.054688 C 168.292969 420.054688 168.214844 420.0625 168.132812 420.0625 L 168.132812 384.832031 L 132.175781 384.832031 L 132.175781 456.746094 L 132.1875 456.746094 C 132.449219 476.511719 148.546875 492.457031 168.375 492.457031 Z M 168.375 420.054688"/><path class="b-line" d="M -0.000915161 -0.000104664 C -0.0830462 -0.000104664 -0.161266 -0.00792667 -0.243397 -0.00792667 L -0.243397 35.265391 L -36.244161 35.265391 L -36.244161 -36.736137 L -36.232428 -36.736137 C -35.970391 -56.525801 -19.853156 -72.490507 -0.000915161 -72.490507 L -0.000915161 -0.000104664" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 420.054583)"/></g>
+            <g class="b-piece" data-piece="head" style="--c2:#b4dc24;--c3:#3c7d47;--ex:-4px;--ey:-12px"><path class="b-fill" d="M -0.0000858224 0.000882947 C -0.0000858224 0.000882947 -0.512427 33.86624 36.000678 36.001647 L 100.379664 35.868673 C 100.379664 35.868673 70.820319 31.785588 62.755835 -0.0343161 Z M -0.0000858224 0.000882947" transform="matrix(0.998785, 0, 0, -0.998785, 132.664148, 384.551663)"/><path class="b-line" d="M -0.0000858224 0.000882947 C -0.0000858224 0.000882947 -0.512427 33.86624 36.000678 36.001647 L 100.379664 35.868673 C 100.379664 35.868673 70.820319 31.785588 62.755835 -0.0343161 Z M -0.0000858224 0.000882947" transform="matrix(0.998785, 0, 0, -0.998785, 132.664148, 384.551663)"/></g>
+            <g class="b-piece" data-piece="ear" style="--c2:#4aa9e3;--c3:#4ebe44;--ex:14px;--ey:-6px"><path class="b-fill" d="M 285.476562 393.578125 C 285.476562 418.398438 265.355469 438.523438 240.53125 438.523438 C 215.710938 438.523438 195.585938 418.398438 195.585938 393.578125 C 195.585938 368.753906 215.710938 348.632812 240.53125 348.632812 C 265.355469 348.632812 285.476562 368.753906 285.476562 393.578125"/><path class="b-line" d="M -0.00172876 -0.00154024 C -0.00172876 -24.85204 -20.147295 -45.001517 -45.001706 -45.001517 C -69.852206 -45.001517 -90.001683 -24.85204 -90.001683 -0.00154024 C -90.001683 24.852871 -69.852206 44.998437 -45.001706 44.998437 C -20.147295 44.998437 -0.00172876 24.852871 -0.00172876 -0.00154024 Z M -0.00172876 -0.00154024" transform="matrix(0.998785, 0, 0, -0.998785, 285.478289, 393.576587)"/></g>
+            <g class="b-piece" data-piece="eye" style="--c2:#c53d4c;--c3:#13241b;--ex:0px;--ey:0px"><path class="b-fill" d="M 204.578125 402.566406 C 204.578125 412.496094 196.527344 420.542969 186.597656 420.542969 C 176.667969 420.542969 168.621094 412.496094 168.621094 402.566406 C 168.621094 392.636719 176.667969 384.585938 186.597656 384.585938 C 196.527344 384.585938 204.578125 392.636719 204.578125 402.566406"/><path class="b-line" d="M 0.00144162 -0.000753422 C 0.00144162 -9.942518 -8.059131 -17.99918 -18.000896 -17.99918 C -27.94266 -17.99918 -35.999322 -9.942518 -35.999322 -0.000753422 C -35.999322 9.941011 -27.94266 18.001584 -18.000896 18.001584 C -8.059131 18.001584 0.00144162 9.941011 0.00144162 -0.000753422 Z M 0.00144162 -0.000753422" transform="matrix(0.998785, 0, 0, -0.998785, 204.576685, 402.565654)"/></g>
+            <g class="b-piece" data-piece="tusk1" style="--c2:#6a2290;--c3:#ccebd0;--ex:8px;--ey:4px"><path class="b-fill" d="M 168.375 446.792969 L 168.375 420.542969 L 194.117188 420.542969 C 194.117188 420.542969 173.675781 426.871094 168.375 446.792969"/><path class="b-line" d="M -0.000915161 -0.00150615 L -0.000915161 26.28042 L 25.772581 26.28042 C 25.772581 26.28042 5.306313 19.944599 -0.000915161 -0.00150615 Z M -0.000915161 -0.00150615" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 446.791464)"/></g>
+            <g class="b-piece" data-piece="tusk2" style="--c2:#6a2290;--c3:#5bb563;--ex:8px;--ey:12px"><path class="b-fill" d="M 168.375 466.207031 L 168.375 492.457031 L 194.117188 492.457031 C 194.117188 492.457031 173.675781 486.128906 168.375 466.207031"/><path class="b-line" d="M -0.000915161 0.00151914 L -0.000915161 -26.280407 L 25.772581 -26.280407 C 25.772581 -26.280407 5.306313 -19.944586 -0.000915161 0.00151914 Z M -0.000915161 0.00151914" transform="matrix(0.998785, 0, 0, -0.998785, 168.375914, 466.208549)"/></g>
+          </g></svg>
+        </figure>
+        </div>
+      </div>
+
+      <figure class="g g--c4"><img src="assets/img/charmettes/charmettes-04.jpg" alt="" data-i18n-alt="alt.charmettes4" width="1448" height="1086" loading="lazy"></figure>
+      <!-- les deux faces de la carte de visite, collées comme des stickers (déplaçables), un coin sur l'autre -->
+      <div class="cardpair g--cards">
+        <figure class="sticker-photo drag cardpair__a" style="--r:-4deg"><img src="assets/img/charmettes/card-front.png" alt="" data-i18n-alt="alt.charmettes3" width="1200" height="776" loading="lazy"></figure>
+        <figure class="sticker-photo drag cardpair__b" style="--r:3deg"><img src="assets/img/charmettes/card-back.png" alt="" data-i18n-alt="alt.charmettes3b" width="1200" height="776" loading="lazy"></figure>
+      </div>
+      <figure class="g g--c5"><img src="assets/img/charmettes/charmettes-05.jpg" alt="" data-i18n-alt="alt.charmettes5" width="1448" height="1086" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ============ 2. EVERIO HD ============ -->
+  <section class="project project--everio" id="everio" data-bg="#1c2c8c" data-fg="#ffffff" data-name="Everio HD">
+    <!-- infos du projet : restent visibles pendant le titre et les premières images -->
+    <div class="project__info"><div class="project__info-inner grid">
+        <div class="project__meta">
+          <p class="project__cat" data-i18n="everio.cat">Édition &amp; publicité</p>
+          <p class="project__desc" data-i18n="everio.desc"></p>
+          <p class="project__year">2026</p>
+        </div>
+    </div></div>
+    <div class="project__stage"><h2 class="project__title">Everio<br>HD</h2></div>
+
+    <div class="project__body grid">
+
+      <!-- La couverture reste collée à gauche pendant que les doubles pages défilent -->
+      <div class="everio__cover">
+        <figure class="g"><img src="assets/img/everio/everio-01.jpg" alt="" data-i18n-alt="alt.everio1" width="1448" height="1086" loading="lazy"></figure>
+      </div>
+      <div class="everio__spreads">
+        <figure class="g"><img src="assets/img/everio/everio-02.jpg" alt="" data-i18n-alt="alt.everio2" width="1448" height="1086" loading="lazy"></figure>
+        <figure class="g"><img src="assets/img/everio/everio-03.jpg" alt="" data-i18n-alt="alt.everio3" width="1448" height="1086" loading="lazy"></figure>
+        <figure class="g"><img src="assets/img/everio/everio-04.jpg" alt="" data-i18n-alt="alt.everio4" width="1448" height="1086" loading="lazy"></figure>
+      </div>
+      <figure class="g g--e5"><img src="assets/img/everio/everio-05.jpg" alt="" data-i18n-alt="alt.everio5" width="1448" height="1086" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ============ 3. NIFFF ============ -->
+  <section class="project project--nifff" id="nifff" data-bg="#6b1512" data-fg="#f3ece2" data-name="NIFFF">
+    <!-- infos du projet : restent visibles pendant le titre et les premières images -->
+    <div class="project__info"><div class="project__info-inner grid">
+        <div class="project__meta">
+          <p class="project__cat" data-i18n="nifff.cat">Affiche &amp; programme</p>
+          <p class="project__desc" data-i18n="nifff.desc"></p>
+          <p class="project__year">2026</p>
+        </div>
+    </div></div>
+    <div class="project__stage"><h2 class="project__title">NIFFF</h2></div>
+
+    <div class="project__body grid">
+      <figure class="g g--n1 sticker-photo zoomable" style="--r:-3deg"><img src="assets/img/nifff/nifff-poster.jpg" alt="" data-i18n-alt="alt.nifff1" width="700" height="992" loading="lazy"></figure>
+      <figure class="g g--n2"><img src="assets/img/nifff/nifff-mockup.jpg" alt="" data-i18n-alt="alt.nifff2" width="2000" height="1613" loading="lazy"></figure>
+
+      <!-- NIFFF : « Laisse-toi plonger » — discret : la silhouette descend le long de sa ligne d'aspiration, au rythme du scroll -->
+      <div class="plunge g--plunge">
+        <div class="plunge__stage">
+          <div class="plunge__text">
+            <p class="plunge__quote" data-i18n="plunge.quote">« Laisse-toi plonger »</p>
+            <p class="plunge__body" data-i18n="plunge.text"></p>
+          </div>
+          <div class="plunge__fig"><img src="assets/img/nifff/figure-line.png" alt="" width="400" height="490"><i class="plunge__line"></i></div>
+          <img class="plunge__eye" src="assets/img/nifff/eye.png" alt="" data-i18n-alt="alt.nifff1" width="1400" height="640">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. PIERRE NOIR ============ -->
+  <section class="project project--pierre" id="pierre-noir" data-bg="#e897c8" data-fg="#000000" data-name="Pierre Noir">
+    <!-- infos du projet : restent visibles pendant le titre et les premières images -->
+    <div class="project__info"><div class="project__info-inner grid">
+        <div class="project__meta">
+          <p class="project__cat" data-i18n="pierre.cat">Jeu de cartes</p>
+          <p class="project__desc" data-i18n="pierre.desc"></p>
+          <p class="project__year">2026</p>
+        </div>
+    </div></div>
+    <div class="project__stage"><h2 class="project__title">Pierre<br>Noir</h2></div>
+
+    <div class="project__body grid">
+      <figure class="g g--p1"><img src="assets/img/pierre-noir/pierre-noir-01.jpg" alt="" data-i18n-alt="alt.pierre1" width="2000" height="1500" loading="lazy"></figure>
+      <figure class="g g--p2"><img src="assets/img/pierre-noir/pierre-noir-02.jpg" alt="" data-i18n-alt="alt.pierre2" width="2000" height="1500" loading="lazy"></figure>
+      <figure class="g g--p3"><img src="assets/img/pierre-noir/pierre-noir-03.jpg" alt="" data-i18n-alt="alt.pierre3" width="2000" height="1500" loading="lazy"></figure>
+
+      <!-- PIERRE NOIR : le jeu en vrai — retrouve les paires (personnalité / cause) -->
+      <div class="memo g--memo">
+        <div class="memo__head">
+          <h3 class="memo__title" data-i18n="memo.title">Trouve les paires</h3>
+          <p class="memo__text" data-i18n="memo.text"></p>
+          <p class="memo__count"><span class="memo__n">0</span>/6 <span data-i18n="memo.pairs">paires</span></p>
+          <p class="memo__win" data-i18n="memo.win" hidden></p>
+          <button type="button" class="memo__again" data-i18n="memo.again">Rejouer</button>
+          <div class="memo__rabbits">
+            <figure class="memo__rabbit">
+              <img class="sticker drag" src="assets/img/pierre-noir/cards/rabbit1.png" alt="" data-i18n-alt="alt.rabbit" width="415" height="640" style="--r:-5deg">
+              <figcaption data-i18n="memo.malus">Le malus</figcaption>
+            </figure>
+            <figure class="memo__rabbit">
+              <img class="sticker drag" src="assets/img/pierre-noir/cards/rabbit3.png" alt="" data-i18n-alt="alt.rabbit2" width="415" height="640" style="--r:6deg">
+              <figcaption data-i18n="memo.bonus">Le bonus</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="memo__grid" data-cards="cobain cobain-x mercury mercury-x lennon lennon-x winehouse winehouse-x kahlo kahlo-x bowie bowie-x"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. AFFICHES (mur de stickers) ============ -->
+  <section class="project project--posters" id="posters" data-bg="#ffffff" data-fg="#000000" data-name="Affiches" data-i18n-name="posters.title">
+    <!-- infos du projet : restent visibles pendant le titre et les premières images -->
+    <div class="project__info"><div class="project__info-inner grid">
+        <div class="project__meta">
+          <p class="project__cat" data-i18n="posters.cat">Sérigraphie, typographie, illustration</p>
+          <p class="project__desc" data-i18n="posters.desc"></p>
+        </div>
+    </div></div>
+    <div class="project__stage"><h2 class="project__title" data-i18n="posters.title">Affiches</h2></div>
+
+    <div class="project__body grid">
+      <div class="wall">
+        <img class="sticker-poster drag zoomable" src="assets/img/posters/poster-02.jpg" alt="" data-i18n-alt="alt.poster2" width="1198" height="1700" loading="lazy" style="--x:2%;--y:6%;--r:-6deg">
+        <!-- affiche jaune : on peut tester ses couleurs -->
+        <div class="po drag" style="--r:3deg">
+          <img class="sticker-poster zoomable po__img" src="assets/img/posters/po-jaune.jpg" alt="" data-i18n-alt="alt.poster3" width="1430" height="2000" loading="lazy">
+          <div class="po__sw">
+            <p data-i18n="po.swatch">Teste les couleurs</p>
+            <div>
+              <button type="button" class="po__dot" style="--s:#e9c23b" data-src="assets/img/posters/po-jaune.jpg" aria-pressed="true" aria-label="jaune"></button>
+              <button type="button" class="po__dot" style="--s:#5b61ef" data-src="assets/img/posters/po-bleu.jpg" aria-pressed="false" aria-label="bleu"></button>
+              <button type="button" class="po__dot" style="--s:#23545f" data-src="assets/img/posters/po-sapin.jpg" aria-pressed="false" aria-label="vert sapin"></button>
+              <button type="button" class="po__dot" style="--s:#5c9272" data-src="assets/img/posters/po-vert.jpg" aria-pressed="false" aria-label="vert"></button>
+              <button type="button" class="po__dot" style="--s:#53b7e6" data-src="assets/img/posters/po-ciel.jpg" aria-pressed="false" aria-label="bleu ciel"></button>
+              <button type="button" class="po__dot" style="--s:#ed74dc" data-src="assets/img/posters/po-rose.jpg" aria-pressed="false" aria-label="rose"></button>
+            </div>
+          </div>
+        </div>
+        <img class="sticker-poster drag zoomable" src="assets/img/posters/poster-04.jpg" alt="" data-i18n-alt="alt.poster4" width="692" height="964" loading="lazy" style="--x:50%;--y:14%;--r:-2deg">
+        <img class="sticker-poster drag zoomable" src="assets/img/posters/poster-01.jpg" alt="" data-i18n-alt="alt.poster1" width="1417" height="2000" loading="lazy" style="--x:73%;--y:3%;--r:5deg">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ À PROPOS + CONTACT ============ -->
+  <section class="about" id="about" data-bg="#ffffff" data-fg="#000000" data-name="Contact" data-i18n-name="nav.about">
+    <div class="about__grid grid">
+      <h2 class="about__title" data-i18n="about.title">Salut, moi c'est Maya</h2>
+      <p class="about__text" data-i18n="about.text"></p>
+      <div class="cardpair about__card">
+        <figure class="sticker-photo drag cardpair__a" style="--r:-4deg"><img src="assets/img/stickers/card-maya-front.png" alt="" data-i18n-alt="alt.cardfront" width="1137" height="735" loading="lazy"></figure>
+        <figure class="sticker-photo drag cardpair__b" style="--r:3deg"><img src="assets/img/stickers/card-maya-back.png" alt="" data-i18n-alt="alt.cardback" width="1137" height="735" loading="lazy"></figure>
+      </div>
+
+      <div class="contact">
+        <p class="contact__label" data-i18n="contact.title">On en parle ?</p>
+        <!-- ⚠️ Vérifie ton adresse e-mail et ton numéro dans js/content.js (CONTACT) -->
+        <a class="contact__big js-email" href="#">email</a>
+        <a class="contact__phone js-phone" href="#">phone</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span>© 2026 Maya Di Pietro</span>
+      <a href="#top" data-i18n="footer.top">Retour en haut</a>
+    </footer>
+  </section>
+
+</main>
+
+<!-- Agrandissement des images -->
+<div class="lightbox" hidden>
+  <button type="button" class="lightbox__close" data-i18n-aria="lightbox.close" aria-label="Fermer">×</button>
+  <img class="lightbox__img" src="" alt="">
+</div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,694 @@
+/* ---------- Typographie : Alaska ---------- */
+@font-face {
+  font-family: "Alaska"; src: url("../fonts/Alaska-Regular.woff2") format("woff2");
+  font-weight: 100 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Alaska"; src: url("../fonts/Alaska-SemiBold.woff2") format("woff2");
+  font-weight: 600 900; font-style: normal; font-display: swap;   /* tous les gras = SemiBold */
+}
+
+/* =========================================================
+   MAYA DI PIETRO — PORTFOLIO
+   Typo : Polymath (kit Adobe Fonts)
+   La couleur de fond change en continu d'un projet à l'autre :
+   chaque section définit data-bg / data-fg dans index.html,
+   et js/main.js mélange les couleurs pendant le scroll.
+   ========================================================= */
+
+/* ---------- Polymath (Adobe Fonts) ----------
+   Chargée par le kit Adobe dans index.html :
+   <link rel="stylesheet" href="https://use.typekit.net/jyc0jgu.css">
+   3 familles : polymath (200→900), polymath-display (400/700), polymath-text (100→900).
+   Space Grotesk ne sert que de secours si le kit ne charge pas. */
+
+/* ---------- Tokens ---------- */
+:root {
+  --bg: #ffffff;          /* piloté par le JS */
+  --fg: #000000;          /* piloté par le JS */
+  --paper: #ffffff;       /* bord blanc des stickers */
+  --punk: #e3202a;        /* rouge des pictos */
+
+  /* Alaska : Regular pour les textes, SemiBold pour les titres et sous-titres */
+  --font: "Alaska", system-ui, sans-serif;
+  --font-ui: "Alaska", system-ui, sans-serif;
+  --font-display: "Alaska", system-ui, sans-serif;
+
+  --pad: clamp(16px, 4vw, 64px);
+  --gap: clamp(12px, 2vw, 32px);
+
+  --t-body: clamp(1rem, 0.9rem + 0.35vw, 1.25rem);
+  --t-small: clamp(0.8rem, 0.75rem + 0.2vw, 0.95rem);
+  --t-mid: clamp(1.5rem, 1rem + 2vw, 3rem);
+  --t-title: clamp(4rem, 16vw, 19rem);
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: var(--t-body);
+  line-height: 1.45;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+figure { margin: 0; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+::selection { background: var(--fg); color: var(--bg); }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+
+.skip {
+  position: fixed; left: var(--pad); top: -100px; z-index: 100;
+  background: var(--fg); color: var(--bg); padding: .5em 1em;
+}
+.skip:focus { top: 12px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+  padding-inline: var(--pad);
+}
+
+/* ---------- Barre du haut ---------- */
+.topbar {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  display: flex; align-items: center; gap: 2rem;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) var(--pad) 10px;
+  font-family: var(--font-ui);
+  font-size: var(--t-small);
+  font-weight: 500;
+  pointer-events: none;
+  transition: background-color .35s ease, box-shadow .35s ease;
+}
+/* "header" vert fluo sur toute la largeur, du même vert que STICK IT ALL :
+   uniquement sur l'accueil, il disparaît dès qu'on commence à défiler */
+.topbar:not(.is-scrolled) {
+  background: #3dff8a; color: #000;
+  --fg: #000; --bg: #3dff8a;
+  box-shadow: 0 .25em .8em rgba(0,0,0,.18);
+}
+.topbar__id { transition: opacity .3s ease, visibility .3s; }
+.topbar.is-scrolled .topbar__id { opacity: 0; visibility: hidden; pointer-events: none; }
+.topbar > * { pointer-events: auto; }
+.topbar a { text-decoration: none; }
+.topbar a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.topbar__name { font-weight: 700; margin-right: auto; }
+/* En haut à gauche : qui je suis + l'école (même typo que le nom, en capitales) */
+.topbar__id {
+  margin-right: auto;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .15em .3em;
+  font-family: var(--font-display); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .02em;
+  font-size: clamp(.72rem, .62rem + .3vw, .92rem);
+  align-items: center;
+}
+.topbar__id .topbar__name { margin: 0; text-decoration: none; }
+.topbar__id .topbar__name:hover { text-decoration: underline; text-underline-offset: 3px; }
+.topbar__eracom {
+  display: inline-flex; align-items: baseline; gap: .2em;
+  padding: .1em .35em; margin-left: .05em;
+  border: 1.5px solid currentColor; border-radius: 99px;
+  text-decoration: none !important;
+  transition: background-color .2s ease, color .2s ease;
+}
+.topbar__eracom:hover, .topbar__eracom:focus-visible { background: var(--fg); color: var(--bg); }
+.topbar__arrow { display: inline-block; transition: translate .2s ease; }
+.topbar__eracom:hover .topbar__arrow { translate: .1em -.1em; }
+.topbar__nav { display: flex; gap: 1.5rem; }
+
+.lang { display: flex; border: 1.5px solid currentColor; border-radius: 99px; overflow: hidden; }
+.lang button {
+  background: none; border: 0; cursor: pointer;
+  padding: .3em .75em; font-weight: 500; font-size: inherit;
+}
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+
+/* ---------- Indicateur bas de page ---------- */
+.now {
+  position: fixed; left: var(--pad); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 50;
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-ui); font-size: var(--t-small); font-weight: 500;
+  pointer-events: none;
+}
+.now__bar { width: 64px; height: 2px; background: color-mix(in srgb, var(--fg) 25%, transparent); position: relative; }
+.now__fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--fg); }
+
+/* ---------- Navigation entre projets ----------
+   Colonne de petits carrés à droite ; le projet visible est plein,
+   son nom s'affiche à côté. Visible seulement pendant les projets. */
+.pnav {
+  position: fixed; right: calc(var(--pad) / 2); top: 50%; z-index: 45;
+  translate: 0 -50%;
+  display: grid; gap: 10px; justify-items: end;
+  font-family: var(--font-ui); font-size: var(--t-small); font-weight: 700;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s ease;
+}
+.pnav.is-on { opacity: 1; pointer-events: auto; }
+.pnav a { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.pnav__dot { width: 11px; height: 11px; border: 2px solid currentColor; transition: background-color .3s ease; }
+.pnav__label {
+  background: var(--bg); padding: 2px 6px;
+  opacity: 0; translate: 6px 0;
+  transition: opacity .25s ease, translate .25s ease;
+}
+.pnav a.is-active .pnav__dot { background: currentColor; }
+.pnav a:hover .pnav__label,
+.pnav a:focus-visible .pnav__label { opacity: 1; translate: 0 0; }
+
+/* repère en bas à gauche : plus visible */
+.now { font-size: var(--t-body); font-weight: 700; }
+.now__label { background: var(--bg); padding: 2px 8px; white-space: pre; }
+
+/* ---------- Stickers (éléments graphiques) ---------- */
+.sticker {
+  rotate: calc(var(--r, 0deg) + var(--spin, 0deg));
+  filter: drop-shadow(0 4px 3px rgba(0,0,0,.18)) drop-shadow(0 14px 18px rgba(0,0,0,.14));
+  user-select: none; -webkit-user-drag: none;
+}
+/* photo collée comme un sticker : bord papier + ombre */
+.sticker-photo, .sticker-poster {
+  rotate: var(--r, 0deg);
+  background: var(--paper);
+  padding: clamp(6px, .8vw, 12px);
+  box-shadow: 0 2px 2px rgba(0,0,0,.12), 0 18px 30px -8px rgba(0,0,0,.35);
+}
+.sticker-photo img { width: 100%; }
+
+.drag { translate: var(--dx, 0px) var(--dy, 0px); cursor: grab; touch-action: none; transition: scale .25s ease, filter .25s ease, box-shadow .25s ease; }
+.drag:hover { scale: 1.03; }
+.drag.is-dragging { cursor: grabbing; scale: 1.06; z-index: 40; }
+
+/* pictos posés à cheval entre deux sections */
+.bridge { position: relative; height: 0; z-index: 20; }
+.bridge .sticker {
+  position: absolute; top: 0; left: var(--x);
+  width: var(--w, 140px);
+  translate: calc(-50% + var(--dx, 0px)) calc(-50% + var(--dy, 0px));
+}
+
+/* ---------- Hero ----------
+   D'après la maquette : nom en très grand à gauche, centré en hauteur.
+   À droite de "Maya" : le mégaphone puis Graphiste / école.
+   À droite de "Di Pietro" : l'autoportrait.
+   La taille (font-size de .hero__lockup) est calculée en JS ;
+   toutes les positions sont en "em" pour suivre cette taille. */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 80px var(--pad) 10vh;
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: clip;
+}
+.hero__lockup { position: relative; width: 100%; font-size: 14vw; }
+
+.hero__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1em;
+  line-height: .99;            /* même interlignage entre les 3 lignes, calé sur Alaska : rien ne se touche */
+  letter-spacing: -.035em;     /* resserré légèrement */
+  white-space: nowrap;
+}
+.hero__line { display: block; width: max-content; }
+/* seuls t et f de Portfolio collés (le letter-spacing s'applique après le t) */
+.hero__tf { letter-spacing: -.075em; }
+/* t-r de Pietro un peu plus aéré */
+.hero__t { letter-spacing: .035em; }
+.hero__dp { word-spacing: -.07em; }
+/* "Di" et "Pietro" un peu plus proches (règle ci-dessus) */
+
+/* "ı" avec le point en dessous */
+.i-low { position: relative; }
+.i-low::after {
+  content: ""; position: absolute;
+  left: 50%; top: 1.01em;
+  width: .17em; height: .17em; border-radius: 50%;
+  background: currentColor;
+  translate: -50% 0;
+}
+
+/* mégaphone + infos, à droite de "Maya" */
+.hero__aside {
+  position: absolute;
+  left: calc(var(--maya-w, 2.6em) + .06em);   /* juste après le "a" de Maya */
+  top: 1.04em;                 /* ligne de "Maya" (2e ligne) */
+  display: flex; align-items: flex-start; gap: .06em;
+}
+.hero .hero__megaphone { position: relative; width: .34em; flex: none; margin-top: -.02em; }
+/* Même ligne typographique que le nom : Polymath Display, en capitales.
+   Les tailles sont en "em" du nom, donc elles restent proportionnelles. */
+.hero__intro {
+  width: max-content; padding-top: .03em;
+  /* ne dépasse jamais le bord droit : le texte passe à la ligne si besoin */
+  max-width: calc(100vw - 2 * var(--pad) - var(--maya-w, 2.6em) - .5em);
+  font-family: var(--font-display); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0;
+}
+.hero__role { margin: 0; font-size: .2em; line-height: .9; }
+.hero__school {
+  margin: .5em 0 0; font-size: .068em; line-height: 1.3;
+  white-space: normal;
+}
+/* ERACOM : un vrai lien, bien visible, vers le site de l'école */
+.hero__eracom {
+  display: inline-flex; align-items: center; gap: .3em;
+  margin-top: .35em; padding: .18em .45em .14em;
+  border: .12em solid currentColor; border-radius: 99px;
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+.hero__eracom-arrow { display: inline-block; transition: translate .2s ease; }
+.hero__eracom:hover, .hero__eracom:focus-visible { background: var(--fg); color: var(--bg); }
+.hero__eracom:hover .hero__eracom-arrow { translate: .12em -.12em; }
+
+/* autoportrait, à droite de "Di Pietro" */
+.hero .hero__moi { position: absolute; z-index: 2; width: 1.1em; left: calc(var(--dp-w, 4.3em) + .12em); top: 1.3em; }   /* juste à côté du haut de Di Pietro */
+@media (max-width: 860px) { .hero .hero__moi { left: auto; right: 0; top: 2.95em; width: 1.15em; } }   /* mobile : sous le nom, à droite, loin du texte */
+
+/* une seule animation d'arrivée : les stickers se "collent" */
+@keyframes slap {
+  0%   { opacity: 0; scale: 1.35; }
+  70%  { opacity: 1; scale: .97; }
+  100% { opacity: 1; scale: 1; }
+}
+.hero .sticker { animation: slap .5s cubic-bezier(.2,.8,.3,1.2) both; }
+.hero__moi { animation-delay: .35s; }
+.hero__megaphone { animation-delay: .85s; }
+
+/* ---------- Index ---------- */
+.index { padding: 10vh var(--pad) 22vh; position: relative; }
+.index__title { margin: 0 0 4vh; font-family: var(--font-ui); font-size: var(--t-small); font-weight: 500; }
+.index__list { list-style: none; margin: 0; padding: 0; border-bottom: 2px solid currentColor; }
+.index__list a {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  border-top: 2px solid currentColor;
+  padding: .25em 0 .3em;
+  text-decoration: none;
+}
+.index__name {
+  font-family: var(--font-ui);
+  font-weight: 900; font-size: clamp(2rem, 7vw, 7.5rem);
+  line-height: 1; letter-spacing: -.01em;
+  transition: translate .35s cubic-bezier(.2,.8,.2,1);
+}
+.index__cat { font-size: var(--t-small); text-align: right; }
+.index__list a:hover .index__name,
+.index__list a:focus-visible .index__name { translate: 2vw 0; }
+
+.index__thumb {
+  position: fixed; left: 0; top: 0; z-index: 30;
+  width: clamp(160px, 16vw, 260px);
+  background: var(--paper); padding: 8px;
+  box-shadow: 0 18px 30px -8px rgba(0,0,0,.4);
+  rotate: -5deg;
+  pointer-events: none;
+  opacity: 0; scale: .8;
+  transition: opacity .2s ease, scale .2s ease;
+}
+.index__thumb.is-on { opacity: 1; scale: 1; }
+
+/* ---------- Projets ---------- */
+.project { position: relative; padding-bottom: 45vh; }
+
+/* Le titre reste collé pendant tout le projet, DEVANT les images :
+   les mockups passent derrière lui, il reste toujours lisible */
+.project__stage {
+  position: sticky; top: 0; z-index: 2;
+  height: 100svh;
+  display: flex; align-items: flex-end;
+  padding: 0 var(--pad) max(7vh, 68px);   /* garde la place du repère en bas */
+  pointer-events: none;
+}
+.project__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-title);
+  line-height: .82;
+  letter-spacing: -.02em;
+  transform-origin: left bottom;
+  /* Équilibre titre / mockups : le titre rétrécit en continu pendant que
+     les images arrivent (valeur calculée dans js/main.js) */
+  scale: var(--title-scale, 1);
+  transition: scale .25s linear;   /* lisse les à-coups de la molette */
+  will-change: scale;
+}
+
+.project__body { position: relative; row-gap: 0; padding-top: 30vh; }  /* le temps de lire avant les images */
+/* les images posées sur les titres laissent deviner le texte derrière */
+.project__body .g:not(.sticker-photo) img { box-shadow: 0 0 0 1px color-mix(in srgb, var(--fg) 8%, transparent); }
+
+/* Les infos restent collées en haut à droite pendant le titre
+   et l'arrivée des premières images, au-dessus de tout, puis s'en vont. */
+.project__info {
+  position: relative; z-index: 3;
+  height: var(--info-h, 160svh); margin-bottom: calc(var(--info-h, 160svh) * -1);
+  pointer-events: none;
+}
+/* Everio et Affiches : le texte se détache et remonte AVANT l'arrivée des images, il ne passe jamais devant */
+.project--everio, .project--posters { --info-h: 118svh; }
+.project__info-inner { position: sticky; top: calc(64px + 4vh); }
+.project__meta {
+  grid-column: 8 / span 5;
+  pointer-events: auto;
+  background: var(--bg);
+  padding: 1.2em 1.4em 1.4em;
+  align-self: start;
+}
+.project__cat { margin: 0 0 .7em; font-family: var(--font-ui); font-weight: 800; font-size: clamp(1.15rem, min(1rem + .8vw, 3.4svh), 1.75rem); line-height: 1.15; }
+.project__desc { margin: 0; max-width: 44ch; font-size: clamp(1rem, min(1rem + .45vw, 2.8svh), 1.45rem); line-height: 1.45; }
+.project__year { margin: 1.2em 0 0; font-size: var(--t-small); }
+
+.g img { width: 100%; }
+.g { position: relative; align-self: start; }
+/* le cadre blanc des photos-stickers épouse l'image : jamais étiré */
+.sticker-photo { align-self: start; height: max-content; line-height: 0; }
+.zoomable, .project__body img { cursor: zoom-in; }
+.project__body .drag { cursor: grab; }
+
+/* Charmettes */
+.g--c1 { grid-column: 1 / span 6; }
+.g--c2 { grid-column: 7 / span 6; margin-top: 30vh; }
+.g--c4 { grid-column: 1 / -1; margin: 28vh calc(var(--pad) * -1) 0; }
+/* deux faces de carte : un coin de la seconde recouvre la première (proportions de la capture « example ») */
+.cardpair { position: relative; width: 100%; aspect-ratio: 1 / .72; }
+.cardpair > figure { position: absolute; width: 60%; margin: 0; }
+.cardpair__a { left: 0; top: 0; }
+.cardpair__b { left: 40%; top: 46%; z-index: 1; }
+.g--cards { grid-column: 2 / span 7; margin-top: -12vh; }
+.g--c5 { grid-column: 6 / span 7; margin-top: 16vh; }
+
+/* Everio : couverture collée, doubles pages qui défilent */
+.everio__cover { grid-column: 1 / span 5; grid-row: 1; align-self: stretch; }
+.everio__cover .g { position: sticky; top: 14vh; }
+.everio__spreads { grid-column: 7 / span 6; grid-row: 1; display: grid; gap: 22vh; }
+.g--e5 { grid-column: 3 / span 8; margin-top: 28vh; }
+
+/* NIFFF */
+.g--n1 { grid-column: 1 / span 5; z-index: 1; }
+.g--n2 { grid-column: 6 / span 7; margin-top: 34vh; }
+
+/* Pierre Noir : cartes qui se chevauchent */
+.g--p1 { grid-column: 1 / span 7; }
+.g--p2 { grid-column: 6 / span 7; margin-top: -8vh; z-index: 1; translate: 0 30vh; }
+.g--p3 { grid-column: 2 / span 10; margin-top: 50vh; }
+
+/* Affiches : escalier en diagonale, quatre affiches qui descendent de gauche à droite.
+   Chaque affiche reste un sticker déplaçable ; le picto flotte seul, loin des affiches. */
+.wall {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap, 24px);
+  align-items: start; padding-bottom: 6vh;
+}
+.sticker-poster {
+  position: relative; grid-row: 1; width: 100%;
+  padding: clamp(4px, .5vw, 8px);
+}
+.wall > :nth-child(1) { grid-column: 1 / span 3; }
+.wall > :nth-child(2) { grid-column: 4 / span 3; margin-top: 18vh; }
+.wall > :nth-child(3) { grid-column: 7 / span 3; margin-top: 36vh; }
+.wall > :nth-child(4) { grid-column: 10 / span 3; margin-top: 54vh; }
+.wall > .po { grid-row: 1; }
+.po__img { width: 100%; display: block; rotate: var(--r, 0deg); }
+.po__sw { margin-top: 1.1em; text-align: center; }
+.po__sw p { margin: 0 0 .5em; font-family: var(--font-ui); font-weight: 700; font-size: var(--t-small); }
+.po__sw div { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.po__dot {
+  width: 24px; height: 24px; border-radius: 50%; background: var(--s); border: 2px solid #fff; cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.3); transition: scale .2s ease;
+}
+.po__dot:hover, .po__dot[aria-pressed="true"] { scale: 1.3; }
+
+/* ---------- À propos ---------- */
+.about { position: relative; padding: 26vh 0 0; }
+.about__grid { row-gap: 6vh; align-items: start; }
+.about__title {
+  grid-column: 1 / span 8;
+  margin: 0; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(3rem, 10vw, 12rem); line-height: .85; letter-spacing: -.02em;
+}
+.about__text { grid-column: 1 / span 5; margin: 0; max-width: 42ch; font-size: clamp(1.1rem, 1rem + .6vw, 1.6rem); line-height: 1.35; }
+.about__card { grid-column: 7 / span 6; grid-row: 2 / span 2; }
+
+.contact { grid-column: 1 / span 6; padding-bottom: 10vh; }
+.contact__label { margin: 0 0 .4em; font-family: var(--font-ui); font-weight: 700; }
+.contact__big {
+  display: inline-block;
+  font-family: var(--font-ui); font-weight: 700; font-size: clamp(1.3rem, 3.2vw, 3.2rem); line-height: 1.1;
+  text-decoration: none; border-bottom: .08em solid currentColor;
+  overflow-wrap: anywhere;
+}
+.contact__big:hover { border-bottom-width: .14em; }
+.contact__phone { display: block; margin-top: .8em; text-decoration: none; font-family: var(--font-ui); font-size: var(--t-mid); font-weight: 500; }
+
+.footer {
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: 18px var(--pad) 60px;
+  border-top: 2px solid currentColor;
+  margin: 8vh var(--pad) 0;
+  padding-inline: 0;
+  font-size: var(--t-small);
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 90;
+  background: rgba(0,0,0,.92);
+  display: grid; place-items: center;
+  padding: 4vh 4vw;
+}
+.lightbox[hidden] { display: none; }
+.lightbox__img { max-width: 100%; max-height: 92vh; width: auto; object-fit: contain; }
+.lightbox__close {
+  position: absolute; top: 12px; right: 18px;
+  background: none; border: 0; color: #fff; font-size: 2.5rem; line-height: 1; cursor: pointer;
+}
+
+/* ---------- Tablette / mobile ---------- */
+@media (max-width: 860px) {
+  .topbar { gap: 1rem; }
+  .topbar__nav { display: none; }
+  .topbar__id { max-width: calc(100vw - 170px); font-size: .62rem; }
+
+  .hero { padding-top: 72px; min-height: 72svh; }
+  .hero__aside { position: absolute; margin: 0; }   /* le mégaphone reste à côté de Maya */
+  .hero__intro { width: auto; max-width: none; min-width: 0; }
+  .hero__role { font-size: 1.7rem; }
+  .hero__school { font-size: .82rem; white-space: normal; }
+  .hero__hint { display: none; }
+
+  .project__title { font-size: clamp(3.5rem, 19vw, 9rem); }
+  .pnav { display: none; }
+  .project { display: flex; flex-direction: column; }
+  .project__stage { order: -1; }
+  .project__info { height: auto; margin: 0 0 6vh; }
+  .project__info-inner { position: static; }
+  .project__body { padding-top: 0; }
+  .now { font-size: var(--t-small); }
+
+  .grid > * { grid-column: 1 / -1 !important; }
+  .project__meta { padding: 1.2em; }
+  .g { margin-top: 6vh; }
+  .g--c4 { margin-inline: calc(var(--pad) * -1); }
+  .g--cards { grid-column: 1 / -1; margin-top: -4vh; }
+  .g--p2 { translate: none; margin-top: -4vh; width: 85%; justify-self: end; }
+  .g--p3 { margin-top: 6vh; }
+  .g--n1 { width: 80%; }
+  .everio__cover, .everio__spreads { grid-row: auto; }
+  .everio__cover .g { position: static; }
+  .everio__spreads { gap: 0; }
+
+  .wall { grid-template-columns: 1fr 1fr; gap: 6vw; padding-top: 4vh; }
+  .wall > * { grid-column: auto !important; grid-row: auto; margin-top: 0 !important; }
+  .wall > :nth-child(even) { margin-top: 8vh !important; }
+
+  .about__card { grid-row: auto; }
+  .footer { flex-direction: column; }
+}
+
+/* Sur écran tactile, on garde le scroll naturel (pas de glisser-déposer) */
+@media (pointer: coarse) {
+  .drag { touch-action: auto; cursor: default; }
+  .index__thumb { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero .sticker { animation: none; }
+  .drag, .index__name, .index__thumb { transition: none; }
+}
+
+/* Schéma de construction de l'éléphant : 3 vignettes fixes, du tracé rose au logo fini.
+   Pas d'animation : un schéma de graphiste, tracés fins rose fluo comme dans ses croquis. */
+.g--build { grid-column: 1 / -1; margin: 30vh 0 0; }
+.build__step { align-self: center; }
+.build__title {
+  margin: 0 0 .9em; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3.6rem); line-height: .95; letter-spacing: -.01em;
+}
+.build__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 64px); }
+.build__step { position: relative; margin: 0; }
+/* flèche entre deux étapes */
+.build__step:not(:last-child)::after {
+  content: "→"; position: absolute; right: calc(clamp(28px, 4vw, 64px) / -2); top: 38%;
+  translate: 50% -50%; font-family: var(--font-ui); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 2.6rem); line-height: 1;
+}
+.build__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.b-line { fill: none; stroke: #ec008c; stroke-width: 1.1; }
+.b-grid line { stroke: #ec008c; stroke-width: .5; stroke-dasharray: 2.5 2.5; opacity: .7; }
+.b-mark circle { fill: none; stroke: #ec008c; stroke-width: .9; }
+.b-fill { fill: var(--c2); fill-opacity: 0; stroke: none; }
+/* 1 : tracé seul */
+/* 2 : formes découpées, écartées, colorées, avec contour blanc façon sticker */
+.build__step--2 .b-line, .build__step--3 .b-line { display: none; }
+.build__step--2 .b-fill { fill-opacity: 1; }
+.build__step--2 .b-piece { filter: url(#b-sticker); transform: translate(calc(var(--ex) * 1.7), calc(var(--ey) * 1.7)); }
+/* 3 : l'éléphant assemblé, en vert */
+.build__step--3 .b-pieces { filter: url(#b-sticker); }
+.build__step--3 .b-fill { fill: var(--c3); fill-opacity: 1; stroke: var(--c3); stroke-width: .5; }   /* ferme les micro-joints entre les formes */
+.build__step figcaption { margin-top: 1.1em; display: grid; gap: .45em; }
+.build__label {
+  justify-self: start; font-family: var(--font-ui); font-weight: 700; font-size: var(--t-small);
+  padding: .4em .9em; border: 2px solid currentColor; border-radius: 99px;
+}
+.build__cap { font-size: clamp(.95rem, .9rem + .3vw, 1.2rem); line-height: 1.4; max-width: 30ch; }
+
+@media (max-width: 860px) {
+  .g--build { margin-top: 8vh; }
+  .build__steps { grid-template-columns: 1fr; gap: 6vh; }
+  .build__step:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -3.2vh; translate: -50% 50%; }
+}
+
+/* =========================================================
+   NIFFF — « Laisse-toi plonger »
+   Une scène collée à l'écran : la silhouette tombe dans l'œil
+   pendant qu'on fait défiler. Les pastilles reprennent les
+   essais couleur de l'affiche.
+   ========================================================= */
+.g--plunge { grid-column: 1 / -1; margin: 24vh calc(var(--pad) * -1) 0; height: 190vh; }
+.plunge__stage {
+  position: sticky; top: 0; height: 100svh; overflow: hidden; z-index: 3;   /* au-dessus du titre : il passe derrière */
+}
+.plunge__text { position: absolute; left: var(--pad); top: calc(64px + 6vh); max-width: 30ch; z-index: 3; }
+.plunge__quote {
+  margin: 0 0 .5em; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.6rem); line-height: .98;
+}
+.plunge__body { margin: 0; font-size: clamp(.95rem, .9rem + .25vw, 1.15rem); line-height: 1.45; }
+/* discret : petit œil, petite silhouette */
+.plunge__eye {
+  position: absolute; left: 50%; bottom: -2%;
+  width: min(50vw, 600px); translate: -50% 0;
+  z-index: 2;                                          /* devant la silhouette : elle disparaît dans l'œil */
+}
+.plunge__fig {
+  position: absolute; left: 50%; top: 0;
+  width: clamp(40px, 4.6vw, 76px);
+  translate: -44% var(--fy, 10vh);                     /* 44 % : la ligne d'aspiration tombe pile au centre */
+  opacity: var(--fo, 1);
+  z-index: 1; will-change: translate;
+}
+.plunge__fig img { display: block; width: 100%; }
+/* la ligne d'aspiration de l'affiche : elle relie la silhouette à l'œil et se raccourcit pendant la chute */
+.plunge__line {
+  position: absolute; left: 44.2%; top: calc(100% - 1px);
+  width: 14%; translate: -50% 0;
+  height: var(--lh, 40vh);
+  background: #f4ece2;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* =========================================================
+   PIERRE NOIR — retrouve les paires
+   ========================================================= */
+.g--memo {
+  grid-column: 1 / -1; margin-top: 30vh;
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+}
+.memo__head { position: relative; }
+.memo__title {
+  margin: 0 0 .5em; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2rem, 1.2rem + 3vw, 4.4rem); line-height: .95;
+}
+.memo__text { margin: 0 0 1em; max-width: 34ch; font-size: clamp(1rem, .95rem + .35vw, 1.3rem); line-height: 1.45; }
+.memo__count { margin: 0; font-family: var(--font-ui); font-weight: 800; font-size: clamp(1.2rem, 1rem + .8vw, 1.8rem); }
+.memo__win { margin: .3em 0 0; font-family: var(--font-ui); font-weight: 800; }
+.memo__again {
+  margin-top: 1em; font-family: var(--font-ui); font-weight: 700; font-size: var(--t-small);
+  padding: .5em 1em; border: 2px solid currentColor; border-radius: 99px; background: none; cursor: pointer;
+}
+.memo__again:hover { background: var(--fg); color: var(--bg); }
+.memo__rabbits { display: flex; gap: clamp(10px, 1.6vw, 22px); margin-top: 2.4em; }
+.memo__rabbit { margin: 0; width: min(46%, 150px); }
+.memo__rabbit img { width: 100%; display: block; }
+.memo__rabbit figcaption { margin-top: .7em; font-family: var(--font-ui); font-weight: 800; font-size: var(--t-small); text-align: center; }
+
+.memo__grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(8px, 1.2vw, 18px); }
+.mcard {
+  aspect-ratio: 281 / 433; padding: 0; border: 0; background: none; cursor: pointer;
+  perspective: 900px;
+  filter: drop-shadow(0 3px 3px rgba(0,0,0,.18)) drop-shadow(0 12px 16px rgba(0,0,0,.14));
+}
+.mcard__in {
+  position: relative; display: block; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .55s cubic-bezier(.2,.8,.2,1);
+  rotate: var(--r, 0deg);
+}
+.mcard.is-open .mcard__in, .mcard.is-done .mcard__in { transform: rotateY(180deg); }
+.mcard img { position: absolute; inset: 0; width: 100%; height: 100%; backface-visibility: hidden; }
+.mcard .mcard__front { transform: rotateY(180deg); }
+.mcard:hover:not(.is-open):not(.is-done) .mcard__in { translate: 0 -6px; }
+.mcard.is-done { cursor: default; }
+.mcard.is-done .mcard__in { animation: memo-pop .45s ease; }
+@keyframes memo-pop { 50% { scale: 1.08; } }
+
+@media (max-width: 860px) {
+  .g--plunge { height: 170vh; }
+  .plunge__eye { width: 86vw; }
+  .g--memo { grid-template-columns: 1fr; }
+  .memo__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .memo__rabbits { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mcard__in { transition: none; }
+}
+
+/* ---------- Sticker texte fluo (page d'accueil) ----------
+   Un vrai élément HTML (pas une image) : texte en Polymath, fond fluo,
+   contour blanc découpé + ombre comme les autres stickers. Déplaçable. */
+.hero__tag {
+  position: absolute; z-index: 3;
+  font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+  font-size: .13em; line-height: 1; letter-spacing: .01em; white-space: nowrap;
+  padding: .32em .55em .26em;
+  background: var(--tag, #e8ff1f); color: #000;
+  border-radius: .35em;
+  box-shadow: 0 0 0 .14em #fff, 0 .18em .35em rgba(0,0,0,.28);
+  rotate: calc(var(--r, -8deg) + var(--spin, 0deg));
+  user-select: none;
+  animation: slap .5s cubic-bezier(.2,.8,.3,1.2) .9s both;
+}
+@media (max-width: 860px) { .hero__tag { font-size: .16em; } }
+
+
+/* Les noms de projets passent DERRIÈRE les textes (jamais par-dessus) :
+   chaque bloc de texte est posé sur un petit "papier" de la couleur du fond. */
+.plunge__text, .memo__head, .about__title, .about__text, .contact {
+  position: relative; z-index: 3;
+}
+.plunge__text, .memo__head, .about__text, .contact {
+  background: var(--bg); box-shadow: 0 0 0 .5em var(--bg);
+}
+.footer { padding-bottom: 72px; }   /* ne passe pas sous le repère fixe en bas */
