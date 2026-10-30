@@ -1,6 +1,0 @@
-ALASKA
-======
-Typographie du site, chargée depuis ce dossier (css/style.css, règles @font-face) :
-  Alaska-Regular.woff2   -> textes
-  Alaska-SemiBold.woff2  -> titres et sous-titres
-Garde ce dossier à côté de index.html.
